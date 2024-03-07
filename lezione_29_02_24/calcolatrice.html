@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
+    <style>
+        /* Stili di base per la presentazione */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcolatrice</h1>
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="aggiungiNumero('1')">1</button>
+    <button onclick="aggiungiNumero('2')">2</button>
+    <button onclick="aggiungiNumero('3')">3</button>
+    <button onclick="aggiungiOperatore('+')">+</button>
+    <br>
+    <button onclick="aggiungiNumero('4')">4</button>
+    <button onclick="aggiungiNumero('5')">5</button>
+    <button onclick="aggiungiNumero('6')">6</button>
+    <button onclick="aggiungiOperatore('-')">-</button>
+    <br>
+    <button onclick="aggiungiNumero('7')">7</button>
+    <button onclick="aggiungiNumero('8')">8</button>
+    <button onclick="aggiungiNumero('9')">9</button>
+    <button onclick="aggiungiOperatore('*')">*</button>
+    <br>
+    <button onclick="aggiungiNumero('0')">0</button>
+    <button onclick="calcolaRisultato()">=</button>
+    <button onclick="resetta()">C</button>
+    <button onclick="aggiungiOperatore('/')">/</button>
+
+    <script>
+        // Funzioni JavaScript per la logica della calcolatrice
+        function aggiungiNumero(numero) {
+            document.getElementById('display').value += numero;
+        }
+
+        function aggiungiOperatore(operatore) {
+            document.getElementById('display').value += operatore;
+        }
+
+        function calcolaRisultato() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Errore';
+            }
+        }
+
+        function resetta() {
+            document.getElementById('display').value = '';
+        }
+    </script>
+</body>
+</html>
